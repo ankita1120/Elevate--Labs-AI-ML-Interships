@@ -1,0 +1,133 @@
+1. How does logistic regression differ from linear regression?
+Linear Regression	Logistic Regression
+Predicts continuous values	Predicts probabilities
+Uses least squares	Uses log-likelihood
+Output can be any number	Output between 0 and 1
+Line fitted by regression	Decision boundary formed by sigmoid
+2. What is the sigmoid function?
+
+The sigmoid converts any number to a probability:
+
+𝜎
+(
+𝑧
+)
+=
+1
+1
++
+𝑒
+−
+𝑧
+σ(z)=
+1+e
+−z
+1
+	​
+
+
+Used to map linear output → probability.
+
+3. What is precision vs recall?
+
+Precision: Out of all predicted positives, how many are really positive?
+
+𝑃
+𝑟
+𝑒
+𝑐
+𝑖
+𝑠
+𝑖
+𝑜
+𝑛
+=
+𝑇
+𝑃
+𝑇
+𝑃
++
+𝐹
+𝑃
+Precision=
+TP+FP
+TP
+	​
+
+
+Recall: Out of actual positives, how many were predicted correctly?
+
+𝑅
+𝑒
+𝑐
+𝑎
+𝑙
+𝑙
+=
+𝑇
+𝑃
+𝑇
+𝑃
++
+𝐹
+𝑁
+Recall=
+TP+FN
+TP
+	​
+
+4. What is the ROC-AUC curve?
+
+ROC plots TPR vs FPR at different thresholds
+
+AUC (Area Under Curve) indicates model performance
+
+AUC = 1 → perfect
+
+AUC = 0.5 → random guessing
+
+5. What is the confusion matrix?
+
+A 2×2 table:
+
+	Predicted 0	Predicted 1
+Actual 0	TN	FP
+Actual 1	FN	TP
+6. What happens if classes are imbalanced?
+
+Problems:
+
+Model predicts majority class
+
+Accuracy becomes misleading
+
+Solutions:
+
+Class weights (class_weight="balanced")
+
+Oversampling (SMOTE)
+
+Undersampling
+
+Precision/Recall or ROC-AUC instead of accuracy
+
+7. How do you choose the threshold?
+
+Increase threshold → higher precision, lower recall
+
+Decrease threshold → higher recall, lower precision
+
+Choose based on business goal:
+
+Medical → recall
+
+Fraud detection → precision
+
+8. Can logistic regression be used for multi-class problems?
+
+Yes.
+Scikit-learn uses:
+
+One-vs-Rest (OvR) → default
+
+Multinomial logistic regression → with solver='lbfgs'

@@ -1,161 +1,132 @@
-Titanic Dataset – Data Cleaning & Preprocessing Project
-📌 Project Overview
+# Task 4: Logistic Regression Classification
 
-This project demonstrates the complete data cleaning and preprocessing workflow on the Titanic dataset.
-The goal is to prepare raw data for machine learning by handling missing values, encoding categorical features, removing outliers, and scaling numerical columns.
+## 📌 Objective
 
-📂 Dataset
+Build a **binary classification model** using **Logistic Regression**, evaluate it with multiple metrics, and understand the sigmoid function and threshold tuning.
 
-The dataset used in this project: Titanic-Dataset.csv
+---
 
-Typical features include:
+## 📊 Dataset
 
-PassengerId
+You may use:
 
-Survived
+* **Breast Cancer Wisconsin Dataset** (built-in in scikit‑learn), or
+* Your uploaded file: `/mnt/data/data.csv`
 
-Pclass
+---
 
-Name
+## 🛠 Tools Used
 
-Sex
+* Python
+* Pandas
+* Scikit-learn
+* Matplotlib
 
-Age
+---
 
-SibSp
+## 🚀 Steps to Follow
 
-Parch
+### **1. Load Dataset**
 
-Ticket
+Choose any binary classification dataset.
 
-Fare
+### **2. Train/Test Split**
 
-Cabin
+Split the dataset (typically 80/20) with `train_test_split`.
 
-Embarked
+### **3. Standardization**
 
-🛠 Tools & Libraries
+Use `StandardScaler` to scale features.
 
-Python
+### **4. Model Training**
 
-Pandas
+Train model using:
 
-NumPy
+```
+LogisticRegression(max_iter=500)
+```
 
-Matplotlib
+### **5. Predictions**
 
-Seaborn
+Generate:
 
-Scikit-Learn
+* Class predictions
+* Probability predictions
 
-🧭 Steps Performed
-1️⃣ Importing & Exploring the Dataset
+### **6. Evaluation Metrics**
 
-Loaded the CSV file using Pandas
+Compute:
 
-Checked data structure, data types, and summary statistics
+* Confusion Matrix
+* Precision, Recall, F1‑score
+* ROC Curve & AUC
+* Threshold tuning
 
-Identified missing values
+### **7. Threshold Tuning**
 
-2️⃣ Handling Missing Data
+Modify default threshold (0.5) based on business requirements.
 
-Filled missing Age values using median
+---
 
-Filled missing Embarked values using mode
+## 📘 What You’ll Learn
 
-Dropped Cabin due to too many nulls
+* Binary classification pipeline
+* Sigmoid function working
+* ROC‑AUC curve interpretation
+* Confusion matrix analysis
+* Impact of threshold on precision & recall
 
-3️⃣ Encoding Categorical Features
+---
 
-Converted Sex column using Label Encoding
+## ❓ Interview Questions & Answers
 
-Converted Embarked using One-Hot Encoding
+### **1. How does logistic regression differ from linear regression?**
 
-4️⃣ Outlier Detection & Removal
+* Linear regression predicts continuous values.
+* Logistic regression predicts probabilities for classification.
 
-Used boxplots and IQR method to remove outliers from:
+### **2. What is the sigmoid function?**
 
-Age
+Maps any real value to **0–1** probability.
 
-Fare
+### **3. What is precision vs recall?**
 
-5️⃣ Scaling Numerical Features
+* Precision: Accuracy of positive predictions.
+* Recall: Ability to capture actual positives.
 
-Applied MinMaxScaler to:
+### **4. What is the ROC‑AUC curve?**
 
-Age
+A plot of TPR vs FPR; AUC shows model’s performance.
 
-Fare
+### **5. What is the confusion matrix?**
 
-SibSp
+A 2×2 table showing TP, FP, TN, FN.
 
-Parch
+### **6. What happens if classes are imbalanced?**
 
-6️⃣ Saving Cleaned Dataset
+Accuracy becomes misleading; consider class weights or resampling.
 
-Final cleaned dataset was saved as:
-📁 Titanic_Cleaned.csv
+### **7. How do you choose the threshold?**
 
-📊 Key Concepts Learned
-✔ Types of Missing Data
+Based on business need—recall or precision.
 
-MCAR – Missing Completely at Random
+### **8. Can logistic regression be used for multi-class?**
 
-MAR – Missing at Random
+Yes—OvR or multinomial logistic regression.
 
-MNAR – Missing Not at Random
+---
 
-✔ Encoding Techniques
+## 📂 Folder Structure (Suggested)
 
-Label Encoding (Ordinal or binary categories)
+```
+Task4_Logistic_Regression/
+│-- data.csv
+│-- logistic_regression.ipynb
+│-- README.md
+```
 
-One-Hot Encoding (Nominal categories)
+---
 
-✔ Scaling
+## ✔️ Need the full project code, notebook, or PDF report?
 
-Normalization (MinMaxScaler) – scales between 0 and 1
-
-Standardization – mean 0, std 1 (not used here but explained)
-
-✔ Outlier Detection
-
-Boxplots
-
-IQR method
-
-✔ Importance of Preprocessing
-
-Good preprocessing improves:
-
-Model accuracy
-
-Data quality
-
-Training stability
-
-📁 Project Files
-File	Description
-Titanic-Dataset.csv	Raw dataset
-Titanic_Cleaned.csv	Cleaned & processed dataset
-notebook.ipynb	(optional) Full code implementation
-README.md	Project documentation
-🚀 How to Run
-
-Clone the repository
-
-Install dependencies
-
-pip install pandas numpy matplotlib seaborn scikit-learn
-
-
-Run the notebook or Python script
-
-Cleaned data will be saved automatically
-
-📌 Future Enhancements
-
-Add full EDA (visualizations & insights)
-
-Build ML models (Logistic Regression / Random Forest)
-
-Deploy using Streamlit or Flask
+Just ask: **"Create Task 4 report"**.
