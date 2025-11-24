@@ -1,0 +1,72 @@
+1. What is a support vector?
+
+A support vector is any data point that lies closest to the decision boundary (hyperplane).
+These points “support” or define the position and orientation of the hyperplane.
+Only these points matter for determining the classifier — removing other points does not affect the boundary.
+
+2. What does the C parameter do?
+
+The C parameter controls the balance between margin width and classification accuracy.
+
+Large C → less tolerance for misclassification → narrow margin → risk of overfitting.
+
+Small C → more tolerance for misclassification → wider margin → better generalization.
+
+So C is a regularization strength parameter.
+
+3. What are kernels in SVM?
+
+A kernel is a mathematical function that transforms data into a higher-dimensional space without explicitly computing the transformation.
+
+Kernels allow SVM to:
+
+learn non-linear decision boundaries
+
+operate efficiently in high-dimensional spaces (kernel trick)
+
+Common kernels:
+
+Linear
+
+RBF (Gaussian)
+
+Polynomial
+
+Sigmoid
+
+4. What is the difference between linear and RBF kernel?
+Kernel	When Used	Decision Boundary
+Linear	Data is linearly separable	Straight line/plane
+RBF (Gaussian)	Data is non-linear or complex	Curved, flexible boundary
+
+Linear kernel uses dot products only.
+RBF kernel maps data into infinite-dimensional space using a Gaussian similarity measure.
+
+5. What are the advantages of SVM?
+
+Works well in high-dimensional spaces
+
+Effective when the number of features is high relative to samples
+
+Robust to overfitting because of margin maximization
+
+Can model non-linear boundaries using kernels
+
+Well-founded theoretical background (convex optimization)
+
+6. Can SVMs be used for regression?
+
+Yes.
+SVMs can be used for regression using SVR (Support Vector Regression).
+
+SVR:
+
+Tries to fit a function within a margin of tolerance (ε)
+
+Similar principles (support vectors, kernels) as SVM classification
+
+7. What happens when data is not linearly separable?
+
+When data is not linearly separable, SVM uses:
+
+**Soft margin (C parameter
