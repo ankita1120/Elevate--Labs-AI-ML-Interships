@@ -1,0 +1,146 @@
+1. How does a Decision Tree work?
+
+A Decision Tree splits the data into smaller groups based on rules.
+
+It asks questions like “Is age > 50?”
+
+Based on the answer (yes/no), the data moves to the next branch.
+
+The goal is to create pure nodes, where all samples belong to one class.
+
+It keeps splitting until:
+
+Node becomes pure OR
+
+Max depth or stopping rule is reached.
+
+In short: A decision tree learns a set of if–else rules to classify or predict values.
+
+2. What is entropy and information gain?
+Entropy
+
+Measures impurity or disorder in a dataset.
+
+High entropy → mixed classes
+
+Low entropy → pure classes
+
+Formula (for binary classification):
+
+Entropy = -p1 log2(p1) - p2 log2(p2)
+
+Information Gain
+
+Tells how much entropy decreases after a split.
+
+It = Before split entropy – After split entropy
+
+Decision Trees choose the split with highest information gain.
+
+3. How is Random Forest better than a single tree?
+
+Random Forest = Many trees working together (ensemble).
+
+Why better?
+
+A single tree can overfit and pick noise.
+
+Random Forest trains multiple trees on:
+
+Different random samples (bootstrap)
+
+Random subsets of features
+
+Final decision = majority vote / average → reduces variance.
+
+In short: Random Forest is more stable, reduces overfitting, and improves accuracy.
+
+4. What is overfitting and how do you prevent it?
+Overfitting
+
+Model learns:
+✔ Patterns
+✖ Noise in the training data
+→ Performs well on training but badly on test data.
+
+How to prevent? (especially for trees)
+
+Limit max_depth
+
+Limit min_samples_split or min_samples_leaf
+
+Use pruning
+
+Use Random Forest
+
+Use Cross-validation
+
+5. What is Bagging?
+
+Bagging = Bootstrap Aggregating
+
+Process:
+
+Create many datasets by sampling with replacement (bootstrap samples).
+
+Train a model on each dataset.
+
+Combine results (voting/averaging).
+
+Random Forest uses bagging + random feature selection.
+
+Benefit: Reduces variance → more stable model.
+
+6. How do you visualize a decision tree?
+
+Methods:
+
+1. sklearn's plot_tree
+from sklearn.tree import plot_tree
+plot_tree(model)
+
+2. Export as DOT file using Graphviz
+from sklearn.tree import export_graphviz
+export_graphviz(model, out_file="tree.dot")
+
+3. Convert dot → PNG (Graphviz)
+dot -Tpng tree.dot -o tree.png
+
+7. How do you interpret feature importance?
+
+Feature importance tells how useful each feature is in making splits.
+
+Higher score = more important.
+
+In Decision Tree: based on how much a feature reduces impurity.
+
+In Random Forest: average importance across all trees.
+
+Usage:
+
+Identify top predictive features.
+
+Remove low-importance features to simplify the model.
+
+8. What are the pros/cons of Random Forests?
+Pros
+
+High accuracy
+
+Handles missing data well
+
+Works with non-linear relationships
+
+Reduces overfitting
+
+Robust to noise/outliers
+
+Cons
+
+Slower than single decision tree
+
+Harder to interpret
+
+Large model size
+
+Not ideal for real-time predictions
