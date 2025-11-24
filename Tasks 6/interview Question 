@@ -1,0 +1,126 @@
+✅ 1. How does the KNN algorithm work?
+
+KNN is a lazy, distance-based algorithm.
+
+Steps:
+
+Store all training data.
+
+When a new point comes → calculate distance to all points.
+
+Pick the K nearest neighbors.
+
+Use majority voting to decide the class.
+
+In short:
+KNN classifies based on the closest examples in the dataset.
+
+✅ 2. How do you choose the right K?
+
+Small K → more noise, can overfit
+
+Large K → smoother decision boundary, can underfit
+
+Tips:
+
+Use odd K to avoid ties.
+
+Try different K values using cross-validation.
+
+Common range: 3, 5, 7, 9
+
+✅ 3. Why is normalization important in KNN?
+
+KNN uses distance metrics (e.g., Euclidean).
+Features with large ranges can dominate others.
+
+Example:
+
+Petal length (0–7)
+
+Sepal width (0–3)
+
+Without scaling, petal length wins every time.
+
+Normalization puts all features on the same scale.
+
+✅ 4. What is the time complexity of KNN?
+
+Training time: O(1)
+→ KNN stores data; no learning phase.
+
+Prediction time: O(n × d)
+n = number of training points
+d = number of features
+
+KNN is slow during prediction because it must compute distance to all points.
+
+✅ 5. What are pros and cons of KNN?
+Pros
+
+Very simple and intuitive
+
+No training time
+
+Works well for small datasets
+
+Handles multi-class problems easily
+
+Cons
+
+Slow prediction
+
+Memory-heavy (stores all training data)
+
+Sensitive to noise
+
+Needs normalization
+
+Doesn’t work well in high dimensions (curse of dimensionality)
+
+✅ 6. Is KNN sensitive to noise?
+
+Yes.
+Noisy or incorrectly labeled points affect KNN heavily because:
+
+Classification depends directly on neighbors
+
+A noisy neighbor can change the majority vote
+
+Using larger K reduces sensitivity.
+
+✅ 7. How does KNN handle multi-class problems?
+
+Very naturally.
+
+Example with 3 classes (A, B, C):
+
+Find K nearest neighbors
+
+Count how many neighbors from each class
+
+Pick the class with maximum votes
+
+No special modification required.
+
+✅ 8. What’s the role of distance metrics in KNN?
+
+Distance metric tells how to measure closeness.
+
+Common metrics:
+
+Euclidean distance
+
+Manhattan distance
+
+Minkowski distance
+
+Cosine similarity
+
+Choice affects:
+
+Shape of decision boundary
+
+Which neighbors are considered closest
+
+Euclidean works best when features are normalized.
