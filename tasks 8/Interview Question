@@ -1,0 +1,137 @@
+K-Means Interview Questions & Answers
+1. How does K-Means clustering work?
+
+K-Means is an unsupervised learning algorithm that groups data into K clusters based on similarity.
+
+Steps:
+
+Choose the number of clusters K.
+
+Initialize K centroids (randomly or using K-Means++).
+
+Assign each data point to the nearest centroid (cluster assignment step).
+
+Recompute the centroids as the mean of all points in each cluster (centroid update step).
+
+Repeat steps 3–4 until centroids stop changing (convergence).
+
+It minimizes the within-cluster variance.
+
+2. What is the Elbow Method?
+
+A technique to choose the optimal number of clusters K.
+
+Compute inertia (within-cluster sum of squares) for K = 1,2,3,…
+
+Plot K vs. inertia.
+
+Look for a point where the decrease in inertia slows down sharply —
+this point looks like an elbow.
+
+👉 That K is considered optimal.
+
+3. What are the limitations of K-Means?
+
+Requires specifying K in advance.
+
+Sensitive to outliers — means get shifted easily.
+
+Assumes spherical, equal-sized clusters.
+
+Struggles with non-linear cluster shapes (e.g., concentric circles).
+
+Sensitive to initialization — bad starting centroids → bad clustering.
+
+Works only with numeric data.
+
+4. How does initialization affect results?
+
+If centroids are poorly initialized, K-Means may:
+
+converge to a local optimum (bad clustering),
+
+take more iterations,
+
+split natural clusters incorrectly.
+
+To improve:
+
+Use K-Means++ initialization, which picks smarter starting centroids.
+
+5. What is inertia in K-Means?
+
+Inertia = sum of squared distances between points and their assigned centroid.
+
+It measures:
+
+how compact clusters are,
+
+how well points fit their clusters.
+
+Lower inertia = better clusters.
+
+Used in Elbow Method.
+
+6. What is Silhouette Score?
+
+A metric to evaluate clustering quality.
+
+Silhouette Score
+=
+𝑏
+−
+𝑎
+max
+⁡
+(
+𝑎
+,
+𝑏
+)
+Silhouette Score=
+max(a,b)
+b−a
+	​
+
+
+Where:
+
+a = average distance to points in the same cluster
+
+b = average distance to points in the nearest other cluster
+
+Scores range from -1 to 1:
+
+1 → well-separated clusters
+
+0 → overlapping clusters
+
+negative → wrong cluster assignment
+
+7. How do you choose the right number of clusters?
+
+Use multiple techniques:
+
+✔ Elbow Method
+
+Pick the elbow point in the inertia plot.
+
+✔ Silhouette Score
+
+Choose K with the highest silhouette score.
+
+✔ Domain Knowledge
+
+Business logic may require specific segments.
+
+✔ Gap Statistic / Davies-Bouldin Index
+
+Advanced evaluation methods.
+
+8. What’s the difference between clustering and classification?
+Clustering	Classification
+Unsupervised learning	Supervised learning
+No labels	Requires labeled data
+Finds natural patterns/groups	Assigns data to predefined classes
+Output: clusters	Output: class labels
+Example: customer segmentation	Example: spam vs. non-spam
