@@ -1,0 +1,95 @@
+AI-Powered Resume Ranker — Project Report (2 Pages)
+1. Introduction
+
+The recruitment process often involves screening hundreds of resumes for a single job role, which is time-consuming and inefficient when done manually. To automate and optimize this process, an AI-Powered Resume Ranker has been developed. This system uses Natural Language Processing (NLP) and Machine Learning techniques to evaluate and rank resumes based on their relevance to a specific job description. It speeds up candidate shortlisting and improves hiring efficiency.
+
+2. Abstract
+
+This project aims to automatically analyze and rank candidate resumes by comparing them against a given job description. The system extracts textual content from PDF resumes, preprocesses the data using spaCy, and converts text into numerical representations using TF-IDF vectorization. A custom scoring algorithm combining cosine similarity and keyword matching is used to determine the relevance of each resume. The project further includes a Flask-based web interface that allows users (HR/Recruiters) to upload multiple resumes and download ranking results. The system provides an efficient, scalable, and automated solution for resume screening.
+
+3. Tools & Technologies Used
+
+Programming Language: Python
+
+Libraries: spaCy, scikit-learn, PyPDF2, pandas, NumPy
+
+NLP Model: en_core_web_sm (spaCy)
+
+Vectorization: TF-IDF
+
+Framework: Flask (for web interface)
+
+Other Tools: HTML/CSS (UI), Jinja Templates, CSV Reporting
+
+4. Steps Involved in Building the Project
+Step 1: Collect Input Data
+
+Job description text is provided by the recruiter.
+
+Multiple resumes are uploaded in PDF or text format.
+
+Step 2: Extract Resume Text
+
+Used PyPDF2 to extract text from PDF files.
+
+Added support for .txt resumes as well.
+
+Step 3: Preprocessing with spaCy
+
+Converted text to lowercase
+
+Tokenized sentences
+
+Removed stopwords
+
+Lemmatized words
+
+Kept only meaningful tokens (nouns, verbs)
+
+This ensures clean and comparable text for analysis.
+
+Step 4: Vectorization Using TF-IDF
+
+Converted preprocessed text into numerical vectors.
+
+Applied TF-IDF to emphasize important keywords.
+
+Step 5: Similarity & Ranking Algorithm
+
+Calculated Cosine Similarity between job description and each resume.
+
+Extracted important job-description keywords using spaCy (noun, verb, proper noun).
+
+Combined both scores:
+
+75% weight → TF-IDF cosine similarity
+
+25% weight → Keyword match ratio
+
+Step 6: Ranking the Resumes
+
+Generated a final score between 0 and 1.
+
+Sorted candidates in descending order of relevance.
+
+Step 7: Web Application Development
+
+Designed a Flask web UI where HR can:
+
+Upload multiple resumes
+
+Paste job description
+
+View ranked results
+
+Download report in CSV format
+
+Step 8: Output Generation
+
+Displayed ranking table through results.html
+
+Allowed downloading HR report for record-keeping.
+
+5. Conclusion
+
+The AI-Powered Resume Ranker successfully automates the shortlisting process by applying NLP and Machine Learning techniques to evaluate resume relevance. The system significantly reduces manual screening time and increases the accuracy of candidate selection. With features like TF-IDF vectorization, keyword matching, and a simple web interface, the project is highly practical and industry-relevant. It can be further enhanced using advanced embeddings such as BERT or by adding OCR support for scanned resumes.
